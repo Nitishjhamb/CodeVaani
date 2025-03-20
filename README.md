@@ -1,12 +1,50 @@
-# React + Vite
+# CodeVaani
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeVaani is an AI-powered chatbot built using Google's **Gemini AI** model. It enables seamless, interactive conversations and provides intelligent responses with a smooth user experience.
 
-Currently, two official plugins are available:
+## Features
+- 🤖 **AI Chatbot** powered by **Gemini AI**
+- 🎨 **Responsive UI** with modern design
+- ✨ **Typewriter effect** for a realistic chatbot experience
+- ⚡ **Real-time responses** with optimized API calls
+- 📡 **Built using React & Vite**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend**: React, Vite, CSS
+- **AI Model**: Google Generative AI (Gemini)
+- **State Management**: React Hooks
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/yourusername/CodeVaani.git
+   cd CodeVaani
+   ```
+
+2. **Install dependencies**:
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory and add your Google Gemini API key:
+   ```sh
+   VITE_GEMINI_API_KEY=your_api_key_here
+   ```
+
+4. **Run the application**:
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+- Type a query in the chat input field and hit **Send**.
+- The chatbot will process the input and respond using Gemini AI.
+- The typewriter effect ensures a dynamic response appearance.
+
+---
+
+🚀 **CodeVaani** - AI Conversations Redefined
+
+
