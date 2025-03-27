@@ -45,6 +45,7 @@ const Chatbot = () => {
     setTimer(typeMessage(result.response.text(), "bot"));
     responseBox.current.scrollTop = responseBox.current.scrollHeight;
   };
+
   const scrollToBottom = () => {
     responseBox.current.scrollTop = responseBox.current.scrollHeight;
   };
@@ -55,17 +56,15 @@ const Chatbot = () => {
     newMessage.className = `message ${sender}`;
     responseBox.current.appendChild(newMessage);
 
-    // Convert Markdown-style text to HTML
     const formattedText = text
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // **bold** to <strong>
-      .replace(/\*(.*?)\*/g, "<em>$1</em>") // *italic* to <em>
-      .replace(/\n\s*\n/g, "</p><p>") // Double newline to paragraph
-      .replace(/\n/g, "<br>") // Single newline to <br>
-      .replace(/^-\s+/gm, "<li>") // Convert lines starting with "- " to <li>
-      .replace(/<\/li>(?!<li>)/g, "</li></ul>") // Close <ul> after the last <li>
-      .replace(/<li>/, "<ul><li>"); // Add <ul> tag before the first <li>
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      .replace(/\n\s*\n/g, "</p><p>")
+      .replace(/\n/g, "<br>")
+      .replace(/^-\s+/gm, "<li>")
+      .replace(/<\/li>(?!<li>)/g, "</li></ul>")
+      .replace(/<li>/, "<ul><li>");
 
-    // If list items exist, wrap them in <ul> tags
     const finalText = formattedText.includes("<li>")
       ? formattedText.replace(/(<li>.*?<\/li>)+/, "<ul>$&</ul>")
       : formattedText;
@@ -112,6 +111,7 @@ const Chatbot = () => {
           required
           disabled={isTyping}
         />
+
         <button type="submit" className="chat-button">
           {isTyping ? "Stop" : "Send"}
         </button>
