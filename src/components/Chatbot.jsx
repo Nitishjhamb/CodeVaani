@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import "./Chatbot.css";
+import ChatVaaniLogo from "../assets/ChatVaaniLogo.svg"; // Make sure path is correct
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
@@ -33,7 +34,7 @@ const Chatbot = () => {
 
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "message bot typing-indicator";
-    typingIndicator.innerHTML = `<span></span><span></span><span></span>`;
+    typingIndicator.innerHTML = "<span></span><span></span><span></span>";
     responseBox.current.appendChild(typingIndicator);
 
     const chatSession = model.startChat({ generationConfig, history: [] });
@@ -41,7 +42,7 @@ const Chatbot = () => {
 
     const result = await chatSession.sendMessage(message);
 
-    typingIndicator.remove(); // Remove typing indicator before showing actual response
+    typingIndicator.remove();
     setTimer(typeMessage(result.response.text(), "bot"));
     responseBox.current.scrollTop = responseBox.current.scrollHeight;
   };
@@ -99,7 +100,10 @@ const Chatbot = () => {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">ChatVaani</div>
+      <div className="chat-header">
+        <img src={ChatVaaniLogo} alt="ChatVaani Logo" className="chat-logo" />
+        <span>ChatVaani</span>
+      </div>
       <div className="chat-box" ref={responseBox}></div>
       <form onSubmit={handleSubmit} className="chat-form">
         <input
@@ -111,7 +115,6 @@ const Chatbot = () => {
           required
           disabled={isTyping}
         />
-
         <button type="submit" className="chat-button">
           {isTyping ? "Stop" : "Send"}
         </button>

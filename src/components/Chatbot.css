@@ -16,9 +16,18 @@
   background: #282533;
   color: white;
   padding: 12px;
-  text-align: center;
-  font-size: clamp(16px, 2.5vw, 18px); /* Responsive font-size */
+  text-align: left; /* Align content to the left */
+  font-size: clamp(16px, 2.5vw, 18px);
   font-weight: bold;
+  display: flex; /* Added flex for alignment */
+  align-items: center; /* Vertically align items */
+  gap: 10px; /* Space between logo and text */
+}
+
+.chat-logo {
+  height: 32px;
+  width: auto;
+  margin-right: 8px; /* Space between logo and text */
 }
 
 .chat-box {
